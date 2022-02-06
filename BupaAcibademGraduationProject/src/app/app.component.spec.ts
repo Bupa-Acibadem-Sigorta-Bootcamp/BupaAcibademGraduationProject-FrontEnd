@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'BupaAcibademGraduationAngularProject'`, () => {
+  it(`should have as title 'BupaAcibademGraduationProject'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('BupaAcibademGraduationAngularProject');
+    expect(app.title).toEqual('BupaAcibademGraduationProject');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('BupaAcibademGraduationAngularProject app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('BupaAcibademGraduationProject app is running!');
   });
 });

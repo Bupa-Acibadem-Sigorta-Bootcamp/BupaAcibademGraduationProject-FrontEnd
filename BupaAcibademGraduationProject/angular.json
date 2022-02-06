@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BupaAcibademGraduationAngularProject": {
+    "BupaAcibademGraduationProject": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bupa-acibadem-graduation-angular-project",
+            "outputPath": "dist/bupa-acibadem-graduation-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "BupaAcibademGraduationAngularProject:build:production"
+              "browserTarget": "BupaAcibademGraduationProject:build:production"
             },
             "development": {
-              "browserTarget": "BupaAcibademGraduationAngularProject:build:development"
+              "browserTarget": "BupaAcibademGraduationProject:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BupaAcibademGraduationAngularProject:build"
+            "browserTarget": "BupaAcibademGraduationProject:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "BupaAcibademGraduationAngularProject"
+  "defaultProject": "BupaAcibademGraduationProject"
 }
