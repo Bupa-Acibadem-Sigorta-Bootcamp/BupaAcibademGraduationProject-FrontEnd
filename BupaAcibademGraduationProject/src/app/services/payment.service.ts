@@ -12,7 +12,7 @@ export class PaymentService {
   apiUrl = environment.bupaAcibademGraduationUrl;
   constructor(private httpClient: HttpClient) {}
 
-  getProducts(): Observable<ListResponseModel<Payment>>{
+  getPayments(): Observable<ListResponseModel<Payment>>{
     return this.httpClient.get<ListResponseModel<Payment>>(this.apiUrl + 'payments/getall');
   }
 }

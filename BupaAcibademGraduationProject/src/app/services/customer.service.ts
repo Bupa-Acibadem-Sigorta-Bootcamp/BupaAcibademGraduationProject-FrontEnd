@@ -12,7 +12,7 @@ export class CustomerService {
   apiUrl = environment.bupaAcibademGraduationUrl;
   constructor(private httpClient: HttpClient) {}
 
-  getProducts(): Observable<ListResponseModel<Customer>>{
+  getCustomers(): Observable<ListResponseModel<Customer>>{
     return this.httpClient.get<ListResponseModel<Customer>>(this.apiUrl + 'customers/getall');
   }
 }

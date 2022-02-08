@@ -12,7 +12,7 @@ export class CardService {
   apiUrl = environment.bupaAcibademGraduationUrl;
   constructor(private httpClient: HttpClient) {}
 
-  getProducts(): Observable<ListResponseModel<Card>>{
+  getCards(): Observable<ListResponseModel<Card>>{
     return this.httpClient.get<ListResponseModel<Card>>(this.apiUrl + 'cards/getall');
   }
 }

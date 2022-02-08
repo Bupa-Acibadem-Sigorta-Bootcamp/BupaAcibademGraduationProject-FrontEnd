@@ -12,7 +12,7 @@ export class OrderService {
   apiUrl = environment.bupaAcibademGraduationUrl;
   constructor(private httpClient: HttpClient) {}
 
-  getProducts(): Observable<ListResponseModel<Order>>{
+  getOrders(): Observable<ListResponseModel<Order>>{
     return this.httpClient.get<ListResponseModel<Order>>(this.apiUrl + 'orders/getall');
   }
 }
