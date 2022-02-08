@@ -16,20 +16,32 @@ export class ProductComponent implements OnInit {
   }
   images =[
   {
-   'path': '../../../assets/ailetamamlayici.png'
+   path: '../../../assets/ailetamamlayici.png'
   },
-  /* {
-    'path': '../../../assets/hamile.png'
+  {
+    path: '../../../assets/yataraktedavi.jpg'
    },
    {
-    'path': '../../../assets/sgkplus.png'
+    path: '../../../assets/sgkplus.png'
    },
    {
-    'path': '../../../assets/yayla.jpg'
-   } */
+    path: '../../../assets/yayla.jpg'
+   },
+   {
+    path: '../../../assets/denizdetedavi.jpg'
+   },
+   {
+     path: '../../../assets/ayakta-tedavi-ve-yatarak-tedavi.jpg'
+    },
+    {
+     path: '../../../assets/yayladatedavi.jpg'
+    },
+    {
+     path: '../../../assets/ormandatedavi.jpg'
+    }
 ]
   getImages(){
-    return this.images;
+   return this.images
   }
   getProducts(){
    this.productService.getProducts().subscribe((response)=>{

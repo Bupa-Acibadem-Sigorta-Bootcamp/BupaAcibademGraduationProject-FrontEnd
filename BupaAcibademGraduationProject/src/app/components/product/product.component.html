@@ -31,7 +31,7 @@
 <div class="content">
   <div class="row">
     <div
-      *ngFor="let product of products"
+      *ngFor="let product of products; let i = index"
       class="card home-card"
       style="
         width: 15rem;
@@ -39,11 +39,9 @@
         margin-bottom: 1em;
         padding-top: 1em;
       "
-      appColor
     >
       <img
-        *ngFor="let image of images"
-        src="{{ image.path }}"
+        src="{{ images[i].path }}"
         class="rounded mx-100 d-block w-100"
         width="100"
         height="200"
@@ -52,6 +50,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ product.title }}</h5>
         <p class="card-text">{{ product.price }} ₺</p>
+        <a class="btn btn-outline-info">Başvur</a>
       </div>
     </div>
   </div>

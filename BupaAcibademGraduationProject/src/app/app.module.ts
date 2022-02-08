@@ -13,6 +13,7 @@ import { CorporateCustomerComponent } from './components/corporate-customer/corp
 import { IndividualCustomerComponent } from './components/individual-customer/individual-customer.component';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { HomeSlideComponent } from './components/home-slide/home-slide.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
     CorporateCustomerComponent,
     IndividualCustomerComponent,
     FooterBarComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    HomeSlideComponent
   ],
   imports: [
     BrowserModule,
