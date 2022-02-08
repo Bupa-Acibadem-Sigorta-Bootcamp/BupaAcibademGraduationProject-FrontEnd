@@ -1,22 +1,19 @@
-<h1>Product Component</h1>
 <table class="table table-hover table-bordered caption-top">
   <caption>
     <h4>List of Products</h4>
   </caption>
   <thead>
-    <tr style="background-color: gainsboro">
+    <tr style="text-align: center; background-color: ivory">
       <th scope="col">Id</th>
       <th scope="col">Title</th>
       <th scope="col">Price</th>
-      <th scope="col">Email</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
-      <td>{{ product.id }}</td>
+      <td style="text-align: center;">{{ product.id }}</td>
       <td>{{ product.title }}</td>
       <td>{{ product.price }}</td>
-      <td>Yahya Erdoğan</td>
     </tr>
   </tbody>
 </table>
