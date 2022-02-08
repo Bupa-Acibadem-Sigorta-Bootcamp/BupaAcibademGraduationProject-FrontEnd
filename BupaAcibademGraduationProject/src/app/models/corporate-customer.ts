@@ -1,6 +1,6 @@
 export interface CorporateCustomer {
-  Id: number;
-  CustomerId?: number;
-  CompanyName: string;
-  TaxNumber: string;
+  id: number;
+  customerId?: number;
+  companyName: string;
+  taxNumber: string;
 }

@@ -1,7 +1,7 @@
 export interface IndividualCustomer {
-  Id: number;
-  CustomerId: number;
-  IdentityNumber: string;
-  DateOfBirth: string;
-  Gender: string;
+  id: number;
+  customerId: number;
+  identityNumber: string;
+  dateOfBirth: string;
+  gender: string;
 }

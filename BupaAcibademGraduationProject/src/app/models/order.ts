@@ -1,6 +1,6 @@
 export interface Order{
-  Id:number;
-  CustomerId?:number;
-  ProductId?:number;
-  OrderDatestring: string;
+  id:number;
+  customerId?:number;
+  productId?:number;
+  orderDatestring: string;
 }

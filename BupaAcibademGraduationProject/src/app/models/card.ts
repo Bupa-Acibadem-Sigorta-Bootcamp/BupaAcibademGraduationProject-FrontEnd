@@ -1,8 +1,8 @@
 export interface Card {
-  Id: number;
-  CustomerId?: number;
-  CardHolderFirstNameLastName: string;
-  CreditCardNumber: string;
-  ValidThru: string;
-  CardValidationValue: string;
+  d: number;
+  customerId?: number;
+  cardHolderFirstNameLastName: string;
+  creditCardNumber: string;
+  validThru: string;
+  cardValidationValue: string;
 }

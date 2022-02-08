@@ -1,8 +1,8 @@
 export interface Payment {
-  Id: number;
-  CustomerId?: string;
-  CardId?: string;
-  PaymentDate: string;
-  PaymentType: string;
-  InstallmentType: string;
+  id: number;
+  customerId?: string;
+  cardId?: string;
+  paymentDate: string;
+  paymentType: string;
+  installmentType: string;
 }
