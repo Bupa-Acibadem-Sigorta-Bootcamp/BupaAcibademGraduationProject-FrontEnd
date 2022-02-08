@@ -11,6 +11,8 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { CardComponent } from './components/card/card.component';
 import { CorporateCustomerComponent } from './components/corporate-customer/corporate-customer.component';
 import { IndividualCustomerComponent } from './components/individual-customer/individual-customer.component';
+import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { IndividualCustomerComponent } from './components/individual-customer/in
     CustomerComponent,
     CardComponent,
     CorporateCustomerComponent,
-    IndividualCustomerComponent
+    IndividualCustomerComponent,
+    FooterBarComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
