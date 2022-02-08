@@ -14,14 +14,26 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
   }
-
+  images =[
+  {
+   'path': '../../../assets/ailetamamlayici.png'
+  },
+  /* {
+    'path': '../../../assets/hamile.png'
+   },
+   {
+    'path': '../../../assets/sgkplus.png'
+   },
+   {
+    'path': '../../../assets/yayla.jpg'
+   } */
+]
+  getImages(){
+    return this.images;
+  }
   getProducts(){
-    this.productService.getProducts().subscribe((response)=>{
+   this.productService.getProducts().subscribe((response)=>{
       this.products = response.data
-      console.log(response.data)
-      console.log(response.message)
-      console.log(response.success)
-
     });
   }
 }

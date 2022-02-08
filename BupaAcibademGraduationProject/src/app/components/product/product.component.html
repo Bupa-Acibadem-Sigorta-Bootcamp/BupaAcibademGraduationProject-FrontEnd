@@ -1,9 +1,9 @@
-<table class="table table-hover table-bordered caption-top">
+<!-- <table class="table table-hover table-bordered caption-top">
   <caption>
     <h4>List of Products</h4>
   </caption>
   <thead>
-    <tr style="text-align: center; background-color: ivory">
+    <tr style="text-align: center; background-color: oldlace">
       <th scope="col">Id</th>
       <th scope="col">Title</th>
       <th scope="col">Price</th>
@@ -16,4 +16,43 @@
       <td>{{ product.price }}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+<!--
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+
+<div class="content">
+  <div class="row">
+    <div
+      *ngFor="let product of products"
+      class="card home-card"
+      style="
+        width: 15rem;
+        margin-left: 2.2em;
+        margin-bottom: 1em;
+        padding-top: 1em;
+      "
+      appColor
+    >
+      <img
+        *ngFor="let image of images"
+        src="{{ image.path }}"
+        class="rounded mx-100 d-block w-100"
+        width="100"
+        height="200"
+        alt=""
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.price }} ₺</p>
+      </div>
+    </div>
+  </div>
+</div>
