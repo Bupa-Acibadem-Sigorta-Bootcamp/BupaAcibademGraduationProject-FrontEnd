@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IndividualCustomer } from '../models/individual-customer';
 import { ListResponseModel } from '../responses/list-response-model';
+import { ResponseModel } from '../responses/response-model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,8 @@ export class IndividualCustomerService {
 
   getIndividualCustomers(): Observable<ListResponseModel<IndividualCustomer>>{
     return this.httpClient.get<ListResponseModel<IndividualCustomer>>(this.apiUrl + 'individualcustomers/getall');
+  }
+  addIndividualCustomer(individualCustomer : IndividualCustomer): Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + 'individualcustomers/add', individualCustomer);
   }
 }
