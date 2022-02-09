@@ -14,6 +14,7 @@ import { IndividualCustomerComponent } from './components/individual-customer/in
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { HomeSlideComponent } from './components/home-slide/home-slide.component';
+import { GeneralDirectorateScreenComponent } from './components/general-directorate-screen/general-directorate-screen.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomeSlideComponent } from './components/home-slide/home-slide.component
     IndividualCustomerComponent,
     FooterBarComponent,
     NavigationBarComponent,
-    HomeSlideComponent
+    HomeSlideComponent,
+    GeneralDirectorateScreenComponent
   ],
   imports: [
     BrowserModule,

@@ -19,10 +19,10 @@ export class HomeSlideComponent implements OnInit {
     {
       path: '../../../assets/slides/slide3.png',
     },
-    {
+   {
       path: '../../../assets/slides/slide4.png',
     },
-    {
+      /*{
       path: '../../../assets/slides/slide5.png',
     },
     {
@@ -36,7 +36,7 @@ export class HomeSlideComponent implements OnInit {
     },
     {
       path: '../../../assets/slides/slide9.png',
-    }
+    } */
   ];
   getImages() {
     return this.images;
