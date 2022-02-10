@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,43 +10,50 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
   }
-  images =[
-  {
-   path: '../../../assets/ailetamamlayici.png'
-  },
-  {
-    path: '../../../assets/yataraktedavi.jpg'
-   },
-   {
-    path: '../../../assets/sgkplus.png'
-   },
-   {
-    path: '../../../assets/yayla.jpg'
-   },
-   {
-    path: '../../../assets/denizdetedavi.jpg'
-   },
-   {
-     path: '../../../assets/ayakta-tedavi-ve-yatarak-tedavi.jpg'
+  images = [
+    {
+      path: '../../../assets/ailetamamlayici.png',
     },
     {
-     path: '../../../assets/yayladatedavi.jpg'
+      path: '../../../assets/yataraktedavi.jpg',
     },
     {
-     path: '../../../assets/ormandatedavi.jpg'
-    }
-]
-  getImages(){
-   return this.images
+      path: '../../../assets/sgkplus.png',
+    },
+    {
+      path: '../../../assets/yayla.jpg',
+    },
+    {
+      path: '../../../assets/denizdetedavi.jpg',
+    },
+    {
+      path: '../../../assets/ayakta-tedavi-ve-yatarak-tedavi.jpg',
+    },
+    {
+      path: '../../../assets/yayladatedavi.jpg',
+    },
+    {
+      path: '../../../assets/ormandatedavi.jpg',
+    },
+  ];
+  getImages() {
+    return this.images;
   }
-  getProducts(){
-   this.productService.getProducts().subscribe((response)=>{
-      this.products = response.data
+  getProducts() {
+    this.productService.getProducts().subscribe((response) => {
+      if ((this.products = response.data)) {
+        this.toastrService.success(response.message, 'Başarılı');
+      } else {
+        this.toastrService.error(response.message, 'Hata!');
+      }
     });
   }
 }
