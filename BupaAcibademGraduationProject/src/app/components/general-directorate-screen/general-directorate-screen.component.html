@@ -106,8 +106,8 @@
               <td>{{i}}</td>
               <td>{{dtoGeneralManagerScreen.firstName}} {{ dtoGeneralManagerScreen.lastName}} </td>
               <td>{{dtoGeneralManagerScreen.title}}</td>
-              <td>{{dtoGeneralManagerScreen.installmentType}} Tek Çekim</td>
-              <td>{{dtoGeneralManagerScreen.price}}.00 ₺</td>
+              <td>{{dtoGeneralManagerScreen.installmentType}}Tek Çekim</td>
+              <td>{{dtoGeneralManagerScreen.price | currency: "TRY":"₺"}}</td>
               <td>Satıldı</td>
             </tr>
           </tbody>
