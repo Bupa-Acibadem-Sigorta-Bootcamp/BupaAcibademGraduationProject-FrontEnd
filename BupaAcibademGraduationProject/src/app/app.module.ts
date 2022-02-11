@@ -17,6 +17,7 @@ import { FooterBarComponent } from './components/footer-bar/footer-bar.component
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { HomeSlideComponent } from './components/home-slide/home-slide.component';
 import { GeneralDirectorateScreenComponent } from './components/general-directorate-screen/general-directorate-screen.component';
+import { PolicyFormComponent } from './components/policy-form/policy-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { GeneralDirectorateScreenComponent } from './components/general-director
     FooterBarComponent,
     NavigationBarComponent,
     HomeSlideComponent,
-    GeneralDirectorateScreenComponent
+    GeneralDirectorateScreenComponent,
+    PolicyFormComponent
   ],
   imports: [
     BrowserModule,
