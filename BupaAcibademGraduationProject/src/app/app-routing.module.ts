@@ -1,3 +1,4 @@
+import { OrderComponent } from './components/order/order.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { PolicyFormComponent } from './components/policy-form/policy-form.component';
 import { GeneralDirectorateScreenComponent } from './components/general-directorate-screen/general-directorate-screen.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path : "generalDirectorateScreen/list",component: GeneralDirectorateScreenComponent},
   {path : "product/policy-form/:id",component: PolicyFormComponent},
   {path : "payment",component: PaymentComponent},
+  {path : "order",component: OrderComponent},
 ];
 
 @NgModule({
