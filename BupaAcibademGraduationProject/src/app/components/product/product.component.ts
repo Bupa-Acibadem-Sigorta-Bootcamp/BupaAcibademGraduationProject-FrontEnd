@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -10,14 +11,17 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
+
   constructor(
     private productService: ProductService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private routerService: Router
   ) {}
 
   ngOnInit(): void {
     this.getProducts();
   }
+  //#region Poliçe görselleri
   images = [
     {
       path: '../../../assets/ailetamamlayici.png',
@@ -44,6 +48,8 @@ export class ProductComponent implements OnInit {
       path: '../../../assets/ormandatedavi.jpg',
     },
   ];
+  //#endregion
+
   getImages() {
     return this.images;
   }
@@ -55,5 +61,11 @@ export class ProductComponent implements OnInit {
         this.toastrService.error(response.message, 'Hata!');
       }
     });
+  }
+  addToOrder(product: Product) {
+    this.productService.getProducts().subscribe((response) => {
+      this.routerService.navigate(['product/policy-form/' + product.id]);
+    });
+    console.log(product);
   }
 }

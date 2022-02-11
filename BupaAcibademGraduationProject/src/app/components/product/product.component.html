@@ -51,7 +51,8 @@
         <h5 class="card-title">{{ product.title }}</h5>
         <p class="card-text">{{ product.price | currency: "TRY":"₺"}}</p>
         <a ></a>
-        <button type="button" class="btn btn-outline-info">Şimdi Satın Al</button>
+        <button type="button" class="btn btn-outline-info"
+        (click)="addToOrder(product)">Şimdi Satın Al</button>
       </div>
     </div>
   </div>
