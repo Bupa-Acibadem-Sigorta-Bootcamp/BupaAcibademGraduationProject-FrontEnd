@@ -19,6 +19,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { HomeSlideComponent } from './components/home-slide/home-slide.component';
 import { GeneralDirectorateScreenComponent } from './components/general-directorate-screen/general-directorate-screen.component';
 import { PolicyFormComponent } from './components/policy-form/policy-form.component';
+import { BorderColorDirective } from './directives/border-color.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PolicyFormComponent } from './components/policy-form/policy-form.compon
     NavigationBarComponent,
     HomeSlideComponent,
     GeneralDirectorateScreenComponent,
-    PolicyFormComponent
+    PolicyFormComponent,
+    BorderColorDirective
   ],
   imports: [
     BrowserModule,
