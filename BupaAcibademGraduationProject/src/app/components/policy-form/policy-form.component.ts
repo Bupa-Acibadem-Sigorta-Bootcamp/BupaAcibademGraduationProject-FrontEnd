@@ -45,8 +45,6 @@ export class PolicyFormComponent implements OnInit {
         this.toastrService.success(
           'Poliçenizi Seçtiniz, Form Sayfasına Yönlendiriliyorsunuz!'
         );
-      } else {
-        this.toastrService.error('Hata Oluştu!', 'Hata');
       }
     });
   }
@@ -58,21 +56,25 @@ export class PolicyFormComponent implements OnInit {
 
       /* Müşteri ortak items */
       customerId: [''],
-      firstName: [''],
-      lastName: [''],
-      phoneNumber: [''],
-      country: [''],
-      city: [''],
-      email: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      country: ['', Validators.required],
+      city: ['', Validators.required],
+      email: ['', Validators.required],
 
       /* Bireysel Müşteri items */
-      identityNumber: [''],
-      dateOfBirth: [''],
-      gender: [''],
+      identityNumber: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      gender: ['', Validators.required],
 
       /* Kurumsal Müşteri items */
-      companyName: [''],
-      taxNumber: [''],
+      companyName: ['', Validators.required],
+      taxNumber: ['', Validators.required],
+
+      /* Olmayan Form items */
+      address: [''],
+      zip: [''],
     });
   }
 
@@ -83,12 +85,8 @@ export class PolicyFormComponent implements OnInit {
       product.price = this.selectedPolicy.price;
       this.orderService.addToOrder(product);
       console.log('addtocart', product);
-      this.toastrService.success(
-        'Poliçenizi Seçtiniz, Form Sayfasına Yönlendiriliyorsunuz!',
-        this.selectedPolicy.title
-      );
     } else {
-      this.toastrService.error('Hata Oluştu!', 'Hata');
+      this.toastrService.error('Form Bilgileriniz Eksik!', 'Hata');
     }
   }
 }
