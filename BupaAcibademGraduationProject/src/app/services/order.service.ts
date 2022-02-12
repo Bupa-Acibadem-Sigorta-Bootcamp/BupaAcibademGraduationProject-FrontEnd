@@ -1,8 +1,10 @@
+import { PolicyForms } from './../models/policy-form-items';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Order } from '../models/order';
+import { PolicyForm } from '../models/policy-form-item';
 import { ListResponseModel } from '../responses/list-response-model';
 import { ResponseModel } from '../responses/response-model';
 
@@ -18,5 +20,11 @@ export class OrderService {
   }
   addOrder(order : Order): Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + 'orders/add', order);
+  }
+  addToOrder(policyForm : PolicyForm){
+    PolicyForms.push(policyForm);
+  }
+  getListOrder() : PolicyForm[]{
+    return PolicyForms;
   }
 }

@@ -1,33 +1,3 @@
-<!-- <table class="table table-hover table-bordered caption-top">
-  <caption>
-    <h4>List of Products</h4>
-  </caption>
-  <thead>
-    <tr style="text-align: center; background-color: oldlace">
-      <th scope="col">Id</th>
-      <th scope="col">Title</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of products">
-      <td style="text-align: center;">{{ product.id }}</td>
-      <td>{{ product.title }}</td>
-      <td>{{ product.price }}</td>
-    </tr>
-  </tbody>
-</table> -->
-
-<!--
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> -->
-
 <div class="content">
   <div class="row">
     <div
@@ -52,7 +22,8 @@
         <p class="card-text">{{ product.price | currency: "TRY":"₺"}}</p>
         <a ></a>
         <button type="button" class="btn btn-outline-info"
-        (click)="addToOrder(product)">Şimdi Satın Al</button>
+        routerLink="product/policy-form/{{product.id}}"
+        >Şimdi Satın Al</button>
       </div>
     </div>
   </div>

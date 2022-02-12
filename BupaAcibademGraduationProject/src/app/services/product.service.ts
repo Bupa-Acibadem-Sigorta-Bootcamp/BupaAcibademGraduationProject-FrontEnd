@@ -19,4 +19,7 @@ export class ProductService {
   addProduct(product : Product): Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + 'products/add', product);
   }
+  getProductById(id : number): Observable<ListResponseModel<Product>>{
+    return this.httpClient.get<ListResponseModel<Product>>(this.apiUrl + 'products/find?id=' + id);
+  }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -14,8 +13,7 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private toastrService: ToastrService,
-    private routerService: Router
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -61,11 +59,5 @@ export class ProductComponent implements OnInit {
         this.toastrService.error(response.message, 'Hata!');
       }
     });
-  }
-  addToOrder(product: Product) {
-    this.productService.getProducts().subscribe((response) => {
-      this.routerService.navigate(['product/policy-form/' + product.id]);
-    });
-    console.log(product);
   }
 }

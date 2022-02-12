@@ -15,13 +15,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>87754875385</td>
-            <td>Yahya</td>
-            <td>Erdoğan</td>
-            <td>Doğada Tedavi</td>
-            <td>233.00 ₺</td>
+          <tr *ngFor="let policyForm of policyForms">
+            <th scope="row">{{policyForm.id}}</th>
+            <td>{{policyForm.identityNumber}}</td>
+            <td>{{policyForm.firstName}}</td>
+            <td>{{policyForm.lastName}}</td>
+            <td>{{policyForm.title}}</td>
+            <td>{{policyForm.price  | currency: "TRY":"₺"}}</td>
           </tr>
         </tbody>
       </table>
