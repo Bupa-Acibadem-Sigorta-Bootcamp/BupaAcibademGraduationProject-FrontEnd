@@ -23,4 +23,9 @@ export interface PolicyForm {
   /* Kurumsal Müşteri items */
   companyName: string;
   taxNumber: string;
+  orderDate: string;
+}
+export class ForProductTitle{
+  title: string;
+  customerId?: number;
 }

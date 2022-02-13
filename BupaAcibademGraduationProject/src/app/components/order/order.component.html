@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let policyForm of policyForms">
-            <th scope="row">{{policyForm.id}}</th>
+            <th scope="row">{{policyForm?.price}}</th>
             <td>{{policyForm.identityNumber}}</td>
             <td>{{policyForm.firstName}}</td>
             <td>{{policyForm.lastName}}</td>

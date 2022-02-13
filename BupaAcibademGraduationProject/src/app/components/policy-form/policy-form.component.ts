@@ -11,6 +11,9 @@ import {
   FormControl,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Customer } from 'src/app/models/customer';
+import { CustomerService } from 'src/app/services/customer.service';
+import { IndividualCustomerService } from 'src/app/services/individual-customer.service';
 
 @Component({
   selector: 'app-policy-form',
@@ -24,8 +27,10 @@ export class PolicyFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private orderService: OrderService,
+    private individualCustomerService: IndividualCustomerService,
     private toastrService: ToastrService,
     private activatedRoute: ActivatedRoute,
+
     private routerService: Router
   ) {}
 
@@ -52,10 +57,10 @@ export class PolicyFormComponent implements OnInit {
   createPolicyForm() {
     this.policyForm = this.formBuilder.group({
       /* Product items */
-      id: [''],
+      /*  id: [''], */
 
       /* Müşteri ortak items */
-      customerId: [''],
+      customerId: ['0'],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
@@ -69,21 +74,24 @@ export class PolicyFormComponent implements OnInit {
       gender: ['', Validators.required],
 
       /* Kurumsal Müşteri items */
-      companyName: ['', Validators.required],
-      taxNumber: ['', Validators.required],
+      /*  companyName: [''],
+      taxNumber: [''], */
 
       /* Olmayan Form items */
-      address: [''],
-      zip: [''],
+      /* address: [''],
+      zip: [''], */
     });
   }
 
-  addToOrder() {
+  addDtoIndividualCustomer() {
     if (this.policyForm.valid) {
       let product = Object.assign({}, this.policyForm.value);
       product.title = this.selectedPolicy.title;
       product.price = this.selectedPolicy.price;
       this.orderService.addToOrder(product);
+      this.individualCustomerService.addDtoIndividualCustomer(product).subscribe(response=>{
+        this.toastrService.success(response.message, "Başarılı")
+      })
       console.log('addtocart', product);
     } else {
       this.toastrService.error('Form Bilgileriniz Eksik!', 'Hata');

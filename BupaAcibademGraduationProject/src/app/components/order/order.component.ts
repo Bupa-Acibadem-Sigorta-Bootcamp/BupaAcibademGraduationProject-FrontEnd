@@ -16,6 +16,5 @@ export class OrderComponent implements OnInit {
   }
   getListOrder() {
     this.policyForms = this.orderService.getListOrder();
-    console.log(this.policyForms);
   }
 }

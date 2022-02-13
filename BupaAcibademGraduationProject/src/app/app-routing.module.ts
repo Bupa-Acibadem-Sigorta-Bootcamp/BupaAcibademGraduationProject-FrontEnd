@@ -10,8 +10,9 @@ const routes: Routes = [
   {path : "", pathMatch : "full", component : ProductComponent},
   {path : "products/getall",component: ProductComponent},
   {path : "generalDirectorateScreen/list",component: GeneralDirectorateScreenComponent},
-  {path : "product/policy-form/:id",component: PolicyFormComponent},
-  {path : "payment",component: PaymentComponent},
+  {path : "product/:id",component: PolicyFormComponent},
+  {path : "product/:id/policy-form",component: PolicyFormComponent},
+  {path : "product/:id/policy-form/order/payment",component: PaymentComponent},
   {path : "order",component: OrderComponent},
 ];
 

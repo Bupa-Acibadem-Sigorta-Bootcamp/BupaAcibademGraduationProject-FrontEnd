@@ -1,10 +1,10 @@
 import { PolicyForms } from './../models/policy-form-items';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Order } from '../models/order';
-import { PolicyForm } from '../models/policy-form-item';
+import { ForProductTitle, PolicyForm } from '../models/policy-form-item';
 import { ListResponseModel } from '../responses/list-response-model';
 import { ResponseModel } from '../responses/response-model';
 
@@ -27,4 +27,7 @@ export class OrderService {
   getListOrder() : PolicyForm[]{
     return PolicyForms;
   }
+  private policyFormDetail = new ForProductTitle()
+  private getPolicyFormData = new BehaviorSubject<ForProductTitle>(this.policyFormDetail)
+  policyFormData = this.getPolicyFormData.asObservable()
 }

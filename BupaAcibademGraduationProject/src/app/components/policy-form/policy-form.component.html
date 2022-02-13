@@ -1,151 +1,254 @@
 <body class="bg-light">
-<div class="container" style="max-width: 960px;">
-  <main>
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-danger">Senin Başvurun</span>
-          <span class="badge bg-primary rounded-pill"></span>
-        </h4>
-        <ul class="list-group mb-3" [formGroup]="policyForm">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">{{selectedPolicy?.title}}</h6>
-              <small class="text-muted">Yahya Erdoğan sağlıklı günler diler.</small>
-            </div>
-            <span class="text-muted"></span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Toplam</span>
-            <strong>{{selectedPolicy?.price | currency: "TRY" :"₺"}}</strong>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3 text-primary">Tamamlayıcı Sağlık Sigortası Girişi</h4>
-        <form class="needs-validation"   [formGroup]="policyForm">
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">Adınız</label>
-              <input formControlName="firstName" type="text" class="form-control" id="firstName" autocomplete="off" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid first name is required.
+  <div class="container" style="max-width: 960px">
+    <main>
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-danger">Senin Başvurun</span>
+            <span class="badge bg-primary rounded-pill"></span>
+          </h4>
+          <ul class="list-group mb-3" [formGroup]="policyForm">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">{{ selectedPolicy?.title }}</h6>
+                <small class="text-muted"
+                  >Yahya Erdoğan sağlıklı günler diler.</small
+                >
               </div>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Soyadınız</label>
-              <input formControlName="lastName" type="text" class="form-control" id="lastName" autocomplete="off" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">Kimlik numaranız</label>
-              <input formControlName="identityNumber" type="text" class="form-control" id="identityNumber" autocomplete="off" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid indetity number is required.
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Doğum Tarihiniz</label>
-              <input formControlName="dateOfBirth" type="date" class="form-control" id="dateOfBirth" autocomplete="off" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid date time is required.
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <label for="username" class="form-label">Cinsiyetiniz</label>
-              <div class="input-group has-validation">
-                <input formControlName="gender" class="form-control" id="gender" placeholder="" required>
-              <div class="invalid-feedback">
-                  Your gender is required.
+              <span class="text-muted"></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Toplam</span>
+              <strong>{{ selectedPolicy?.price | currency: "TRY":"₺" }}</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3 text-primary">Tamamlayıcı Sağlık Sigortası Girişi</h4>
+          <form class="needs-validation" [formGroup]="policyForm">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">Adınız</label>
+                <input
+                  formControlName="firstName"
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  autocomplete="off"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid first name is required.
                 </div>
               </div>
-            </div>
-            <div class="col-sm-4">
-              <label for="username" class="form-label">Telefon Numaranız</label>
-              <div class="input-group has-validation">
-                <input formControlName="phoneNumber" class="form-control" id="phoneNumber" autocomplete="off" placeholder="" required>
-              <div class="invalid-feedback">
-                  Your phone number is required.
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Soyadınız</label>
+                <input
+                  formControlName="lastName"
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  autocomplete="off"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Valid last name is required.</div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="identityNumber" class="form-label"
+                  >Kimlik numaranız</label
+                >
+                <input
+                  formControlName="identityNumber"
+                  type="text"
+                  class="form-control"
+                  id="identityNumber"
+                  autocomplete="off"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid indetity number is required.
                 </div>
               </div>
-            </div>
 
-            <div class="col-sm-4">
-              <label for="email" class="form-label">Email Adresiniz</label>
-              <input formControlName="email" type="email" class="form-control" id="email" autocomplete="off" placeholder="">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+              <div class="col-sm-6">
+                <label for="dateOfBirth" class="form-label"
+                  >Doğum Tarihiniz</label
+                >
+                <input
+                  formControlName="dateOfBirth"
+                  type="date"
+                  class="form-control"
+                  id="dateOfBirth"
+                  autocomplete="off"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Valid date time is required.</div>
+              </div>
+
+              <div class="col-sm-4">
+                <label for="gender" class="form-label">Cinsiyetiniz</label>
+                <div class="input-group has-validation">
+                  <input
+                    formControlName="gender"
+                    class="form-control"
+                    id="gender"
+                    placeholder=""
+                    required
+                  />
+                  <div class="invalid-feedback">Your gender is required.</div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label for="phoneNumber" class="form-label"
+                  >Telefon Numaranız</label
+                >
+                <div class="input-group has-validation">
+                  <input
+                    formControlName="phoneNumber"
+                    class="form-control"
+                    id="phoneNumber"
+                    autocomplete="off"
+                    placeholder=""
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Your phone number is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <label for="email" class="form-label">Email Adresiniz</label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  autocomplete="off"
+                  placeholder=""
+                />
+                <div class="invalid-feedback">
+                  Please enter a valid email address for shipping updates.
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="address" class="form-label">Adresiniz</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+              </div>
+
+              <!-- <div class="col-md-5">
+                <label for="country" class="form-label">Ülke</label>
+                <select formControlName="country" class="form-select" id="country" required>
+                  <option>seçiniz!</option>
+                  <option *ngFor="let customer of customers" [value]="customer.id">
+                    {{ customer.country }}
+                  </option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div> -->
+
+              <div class="col-md-5">
+                <label for="country" class="form-label">Ülke</label>
+                <input
+                  formControlName="country"
+                  type="text"
+                  class="form-control"
+                  id="country"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <label for="state" class="form-label">Şehir</label>
+                <input
+                  formControlName="city"
+                  type="text"
+                  class="form-control"
+                  id="city"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="zip" class="form-label">Posta Numarası</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="zip"
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">Zip code required.</div>
               </div>
             </div>
-            <div class="col-12">
-              <label for="address" class="form-label">Adresiniz</label>
-              <input formControlName="address" type="text" class="form-control" id="address" placeholder="" required>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-            <div class="col-md-5">
-              <label for="country" class="form-label">Ülke</label>
-              <select class="form-select" id="country" required>
-                <option value="">seçiniz!</option>
-                <option>Türkiye</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
-            </div>
 
-            <div class="col-md-4">
-              <label for="state" class="form-label">Şehir</label>
-              <select class="form-select" id="city" required>
-                <option value="">seçiniz!</option>
-                <option>Uşak</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
+            <hr class="my-4" />
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="same-address"
+              />
+              <label class="form-check-label" for="same-address"
+                >Fatura adresim fatura adresim ile aynı.</label
+              >
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="save-info" />
+              <label class="form-check-label" for="save-info"
+                >Bu bilgilerimi bir dahaki sefere saklayın.</label
+              >
             </div>
 
-            <div class="col-md-3">
-              <label for="zip" class="form-label">Posta Numarası</label>
-              <input formControlName="zip" type="text" class="form-control" id="zip" placeholder="" required>
-              <div class="invalid-feedback">
-                Zip code required.
-              </div>
-            </div>
-          </div>
+            <hr class="my-4" />
 
-          <hr class="my-4">
+            <hr class="my-4" />
 
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">Fatura adresim fatura adresim ile aynı.</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Bu bilgilerimi bir dahaki sefere saklayın.</label>
-          </div>
-
-          <hr class="my-4">
-
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-outline-primary btn-lg" type="submit"
-          routerLink="/payment"
-          (click)="addToOrder()"
-          >Bilgilerimi Kaydet ve Ödeme Ekranına Geç</button>
-        </form>
+            <button
+              class="w-100 btn btn-outline-primary btn-lg"
+              type="button"
+              routerLink="/product/{{
+                selectedPolicy.id
+              }}/policy-form/order/payment"
+              (click)="addDtoIndividualCustomer()"
+            >
+              Bilgilerimi Kaydet ve Ödeme Ekranına Geç
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-  </footer>
-</div>
+    <footer class="my-5 pt-5 text-muted text-center text-small"></footer>
+  </div>
 </body>
