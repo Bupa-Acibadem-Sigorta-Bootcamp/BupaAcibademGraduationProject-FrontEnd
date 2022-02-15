@@ -1,4 +1,4 @@
-export interface PolicyForm {
+export class PolicyForm {
   /* Ortak item */
   id: number;
 
@@ -7,7 +7,7 @@ export interface PolicyForm {
   price?: number;
 
   /* Müşteri ortak items */
-  customerId?: number;
+  customerId: number;
   firstName: string;
   lastName: string;
   phoneNumber: string;
@@ -26,6 +26,7 @@ export interface PolicyForm {
   orderDate: string;
 }
 export class ForProductTitle{
+  productId:number;
   title: string;
-  customerId?: number;
+  customerId: number;
 }

@@ -19,4 +19,7 @@ export class CustomerService {
   addCustomer(customer : Customer): Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + 'customers/add', customer);
   }
+  getCustomerById(id : number): Observable<ListResponseModel<Customer>>{
+    return this.httpClient.get<ListResponseModel<Customer>>(this.apiUrl + 'customers/find?id=' + id);
+  }
 }

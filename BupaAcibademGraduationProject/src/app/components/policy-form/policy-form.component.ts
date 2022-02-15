@@ -23,6 +23,7 @@ import { IndividualCustomerService } from 'src/app/services/individual-customer.
 export class PolicyFormComponent implements OnInit {
   policyForm: FormGroup;
   selectedPolicy: Product;
+  customerId : Customer;
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -30,6 +31,7 @@ export class PolicyFormComponent implements OnInit {
     private individualCustomerService: IndividualCustomerService,
     private toastrService: ToastrService,
     private activatedRoute: ActivatedRoute,
+    private customerService: CustomerService,
 
     private routerService: Router
   ) {}
@@ -40,7 +42,19 @@ export class PolicyFormComponent implements OnInit {
       if (params['id']) {
         this.getProductById(params['id']);
       }
+      if (params['id']) {
+        this.getCustomerById(params['id']);
+      }
+
     });
+  }
+
+  getCustomerById(id: number){
+    this.customerService.getCustomerById(id).subscribe((response: any)=>{
+      if(response.data){
+        this.customerId = response.data as Customer;
+      }
+    })
   }
 
   getProductById(id: number) {
@@ -60,7 +74,7 @@ export class PolicyFormComponent implements OnInit {
       /*  id: [''], */
 
       /* Müşteri ortak items */
-      customerId: ['0'],
+     /*  customerId: [''], */
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
@@ -86,12 +100,16 @@ export class PolicyFormComponent implements OnInit {
   addDtoIndividualCustomer() {
     if (this.policyForm.valid) {
       let product = Object.assign({}, this.policyForm.value);
+      product.customerId = this.customerId.id;
+      product.productId = this.selectedPolicy.id;
       product.title = this.selectedPolicy.title;
       product.price = this.selectedPolicy.price;
       this.orderService.addToOrder(product);
-      this.individualCustomerService.addDtoIndividualCustomer(product).subscribe(response=>{
-        this.toastrService.success(response.message, "Başarılı")
-      })
+      this.individualCustomerService
+        .addDtoIndividualCustomer(product)
+        .subscribe((response) => {
+          this.toastrService.success(response.message, 'Başarılı');
+        });
       console.log('addtocart', product);
     } else {
       this.toastrService.error('Form Bilgileriniz Eksik!', 'Hata');

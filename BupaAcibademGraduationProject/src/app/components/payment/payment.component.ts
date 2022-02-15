@@ -1,3 +1,4 @@
+import { PolicyForm } from './../../models/policy-form-item';
 import { CardService } from './../../services/card.service';
 import { OrderService } from './../../services/order.service';
 import { PaymentService } from './../../services/payment.service';
@@ -5,8 +6,9 @@ import { Payment } from './../../models/payment';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { PolicyForm } from 'src/app/models/policy-form-item';
 import { IndividualCustomerService } from 'src/app/services/individual-customer.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/models/customer';
 
 @Component({
   selector: 'app-payment',
@@ -15,24 +17,23 @@ import { IndividualCustomerService } from 'src/app/services/individual-customer.
 })
 export class PaymentComponent implements OnInit {
   policyForms: PolicyForm[] = [];
+  customers: Customer[] = [];
   cardForm: FormGroup;
-  customerId?: number;
+  customerId: number;
   title: string;
   price: number;
+  productId?: number;
+
   constructor(
     private formBuilder: FormBuilder,
-    private orderService: OrderService,
     private toastrService: ToastrService,
-    private cardService: CardService
+    private cardService: CardService,
+    private orderService: OrderService,
   ) {}
 
   ngOnInit(): void {
-    this.orderService.policyFormData.subscribe((response)=>{
-      this.title = response.title
-      this.customerId = response.customerId
-    });
-    this.policyForms = this.orderService.getListOrder();
     this.createCardForm();
+    this.getListOrder();
   }
 
   createCardForm() {
@@ -47,24 +48,29 @@ export class PaymentComponent implements OnInit {
   addPayment() {
     if (this.cardForm.valid) {
       let payment = Object.assign({}, this.cardForm.value);
-
-
-      this.cardService.addCard(payment).subscribe((response)=>{
-        console.log("müşteri kart bilgileri", payment)
-        this.policyForms.map(poliycForm =>{
-          payment.customerId = this.customerId;
-          payment.title = this.title;
-          console.log(" ürünler",this.title)
-          this.orderService.addOrder(poliycForm)
-          .subscribe(response=>{
-            this.toastrService.success("Poliçe Alındı.","Başarılı");
-            console.log("poliçe form", response)
-          })
-        })
+      this.cardService.addCard(payment).subscribe((response) => {
+        console.log('müşteri kart bilgileri', payment);
         this.toastrService.success('Ödeme tamamlandı', 'Başarılı');
       });
-    }else{
-      this.toastrService.error("Formunuz Hatalı!", "Hata");
+
+      this.policyForms.map((order) => {
+        this.orderService.policyFormData.subscribe((response: any) => {
+          this.policyForms = response[0].id = this.orderService.getListOrder();
+          order.id = response.productId;
+          order.customerId = response.CustomerId;
+        });
+        this.orderService.addOrder(order).subscribe((response) => {
+          this.toastrService.info('Poliçe Eklendi', 'Başarılı');
+        });
+      });
+    } else {
+      this.toastrService.error('Formunuz Hatalı!', 'Hata');
     }
+  }
+
+  getListOrder() {
+    this.orderService.policyFormData.subscribe((response) => {
+      this.policyForms = this.orderService.getListOrder();
+    });
   }
 }
